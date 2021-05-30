@@ -5,14 +5,16 @@
 // детьми их детей и так далее. То есть, всё поддерево DOM.
 
 let bodyEl = document.body;
+bodyEl.style.backgroundColor = 'pink'
+// console.log(document.body)
 
 // childNodes,
 let bodyChilds = bodyEl.childNodes;
-// console.log(bodyChilds)
+console.log(bodyChilds)
 
 // firstChild
 // console.log(bodyEl.firstChild)
-// console.log(bodyEl.firstElementChild)
+// console.log(bodyEl.firstElementChild.style.backgroundColor = 'red')
 
 // lastChild
 // console.log(bodyEl.lastChild)
@@ -35,6 +37,10 @@ let ul = bodyChilds[3];
 // Для перебора подходят как обычные циклы так и for..of
 
 // for (let i = 0; i < bodyChilds.length; i++) {
+    // if(i === 1) {
+    //     bodyChilds[i].innerHTML = 'Привет Пес'
+    // }
+
 //     console.log( bodyChilds[i] ); // Text, DIV, Text, UL, ..., SCRIPT
 // }
 
@@ -44,8 +50,19 @@ let ul = bodyChilds[3];
 // }
 
 
-// Массивы из коллекций - для работы с коллекцией элементов как с массивом данных
+// Массивы из коллекций - для работы с коллекцией
+// элементов как с массивом данных
 
-// console.log( Array.from(document.body.childNodes).filter );
+let arr =  Array.from(document.body.childNodes);
 
+let filteredArr = arr.filter(
+    function (item) {
+        if(item.nodeName === 'DIV') {
+            return item;
+        }
 
+        return null
+    }
+)
+
+console.log( arr, filteredArr );
